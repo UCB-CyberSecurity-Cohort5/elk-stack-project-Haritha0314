@@ -21,9 +21,9 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly **available**, in addition to restricting **network load** to the network.
+Load balancing ensures that the application will be highly **available**, in addition to restricting **access** to the network.
 - _TODO: What aspect of security do load balancers protect? - **The load balancers protect the availability aspect of the security. Load balancer distributes the network traffic among the servers.If a server is down, the load balancer diverts the traffic to the working server to ensure the availability and continuity of the connection** 
-- What is the advantage of a jump box?_ **Jumpbox protects the servers to which it is connected from public access, which in addition reduces the attack surafce.** 
+- What is the advantage of a jump box?_ **Jumpbox protects the servers from public Internet, which in addition reduces the attack surafce.** 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the **system/server** and **system performance**.
 - _TODO: What does Filebeat watch for?_ **Filebeat collects and monitors the logs and forwards it to the tools such as Elastisearch for further analysis** 
 - _TODO: What does Metricbeat record?_ **Metricbeat collects the statistics and metrics such as performance and forwards it to tools such as Elastisearch for further analysis**
@@ -33,28 +33,29 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| RedTeamAdmin 1     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Jump Box | Gateway  | PublicIp-13.64.64.231, PrivateIP 10.0.0.4  | Linux            |
+| RedTeamWeb-1     | Server         |   PrivateIp 10.0.0.5         |    Linux              |
+| RedTeamWeb-2  |      Server    |   PrivateIp 10.0.0.6         |  Linux                |
+| RedTeamWeb-3  |    Server      |   PrivateIp 10.0.0.7         |   Linux               |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the **Jumpbox** machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+- _TODO: **23.114.192.99**
 
 Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+- _TODO: Which machine did you allow to access your ELK VM? - **I have set up security group rule such that only my computer can access the ELK server** 
+-  What was its IP address?_ **23.114.192.99**
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Jump Box | Yes            | 23.114.192.99   |
+|  Virtualnetwork        |  No                   |     10.0.0.4                 |
+|      DVWA    |      Yes               |          23.114.92.99            |
 
 ### Elk Configuration
 
@@ -89,8 +90,10 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- _Which file is the playbook? - **The Playbook is the file with the yml extension and it has the details of the tasks to be accomplished like launching a container.** 
+- Where do you copy it?_ **In the /etc/ansible folder**
+- _Which file do you update to make Ansible run the playbook on a specific machine? - the hosts'' file.  
+-  How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+- _Which URL do you navigate to in order to check that the ELK server is running? - https:/[Public IP of the ELK Server:[Port]/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
