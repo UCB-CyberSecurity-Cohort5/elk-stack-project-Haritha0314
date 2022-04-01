@@ -61,39 +61,53 @@ A summary of the access policies in place can be found in the table below.
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 - _TODO: What is the main advantage of automating configuration with Ansible?_
+- **It is quicker and easy to manage the configurations from a single docker file. **
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
+- **Install the Apt packages 
+- **Install the pip packages
+- **Download the Docker container**
+-** Configure the containers**
+-** Starts the container**
+-** Enables the docker on the reboot** 
 - ...
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png) - https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-Haritha0314/blob/main/Ansible/Docker_ps.jpg
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 - _TODO: List the IP addresses of the machines you are monitoring_
+- **10.0.0.5, 10.0.0.6 and 10.0.0.7**
 
 We have installed the following Beats on these machines:
 - _TODO: Specify which Beats you successfully installed_
+- **Metricbeat and Filebeat **
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
-
+- **Metrcibeat collects the metrics and statistics such as system performance, CPU usage etc and Filebeat collects the system logs. **
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the **Playbook**_____ file to **/etc/ansible**_____.
+- Update the **hosts**_____ file to ****include the IP addresses of the hosts and ansible.conig file to include the remote user name.**
+- Run the playbook, and navigate to _**container_**__ to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? - **The Playbook is the file with the yml extension and it has the details of the tasks to be accomplished like launching a container.** 
 - Where do you copy it?_ **In the /etc/ansible folder**
-- _Which file do you update to make Ansible run the playbook on a specific machine? - the hosts'' file.  
--  How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running? - https:/[Public IP of the ELK Server:[Port]/app/kibana
+- _Which file do you update to make Ansible run the playbook on a specific machine? - **the "hosts file.**  
+-  How do I specify which machine to install the ELK server on versus which to install Filebeat on?_**this can be specified in the ELK-configuration files and the Filebeat- configurations file. The respective playbooks have the configuration files listed as the source**
+- _Which URL do you navigate to in order to check that the ELK server is running? -** https:/[Public IP of the ELK Server:[Port]/app/kibana**
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+-** Download the playbook using a curl command 
+- update the hosts file running nano hosts 
+- update the ansible.cfg file running nano ansible.cfg
+- updating the playbook using nano <nameof the playbook.yml> 
+  Running the playbook running ansible-playbook <name of the playbook>.yml **
+  
