@@ -2,11 +2,11 @@
 
 The files in this repository were used to configure the network depicted below.
 
- https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-Haritha0314/tree/main/Diagrams
+![](Diagrams/image%20(15).png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the **elk-playbook.yml** file may be used to install only certain pieces of it, such as Filebeat.
 
- https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-Haritha0314/blob/main/Ansible/image%20(23).png
+ ![](Ansible/image%20(23).png)
 
 This document contains the following details:
 - Description of the Topologu
@@ -68,13 +68,13 @@ The playbook implements the following tasks:
 - **Install the Apt packages 
 - **Install the pip packages
 - **Download the Docker container**
--** Configure the containers**
+-** **Configure the containers**
 -** Starts the container**
--** Enables the docker on the reboot** 
+-** Enables the docker on the reboot**** 
 - ...
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
- - https://github.com/UCB-CyberSecurity-Cohort5/elk-stack-project-Haritha0314/blob/main/Ansible/Docker_ps.jpg
+ - ![](Ansible/Docker_ps.jpg)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
