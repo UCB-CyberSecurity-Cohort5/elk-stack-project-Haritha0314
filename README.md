@@ -29,7 +29,7 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 - What does Metricbeat record?_ **Metricbeat collects the statistics and metrics such as performance and forwards it to tools such as Elastisearch for further analysis**
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
+Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
@@ -65,13 +65,12 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 - In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- **Install the Apt packages 
-- **Install the pip packages
-- **Download the Docker container**
--** **Configure the containers**
--** Starts the container**
--** Enables the docker on the reboot**** 
-- ...
+**- Install the Apt packages 
+- Install the pip packages
+- Download the Docker container
+- Configure the containers
+- Starts the container
+- Enables the docker on the reboot**
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
  - ![](Ansible/Docker_ps.jpg)
@@ -97,13 +96,13 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to **container** to check that the installation worked as expected.
 
 Answer the following questions to fill in the blanks:
-- _Which file is the playbook? - **The Playbook is the file with the yml extension and it has the details of the tasks to be accomplished like launching a container.** 
+- Which file is the playbook? - **The Playbook is the file with the yml extension and it has the details of the tasks to be accomplished like launching a container.** 
 - Where do you copy it?_ **In the /etc/ansible folder**
-- _Which file do you update to make Ansible run the playbook on a specific machine? - **the "hosts file.**  
+- Which file do you update to make Ansible run the playbook on a specific machine? - **the "hosts file.**  
 -  How do I specify which machine to install the ELK server on versus which to install Filebeat on?_**this can be specified in the ELK-configuration files and the Filebeat- configurations file. The respective playbooks have the configuration files listed as the source**
-- _Which URL do you navigate to in order to check that the ELK server is running? -** https:/[Public IP of the ELK Server:[Port]/app/kibana**
+- Which URL do you navigate to in order to check that the ELK server is running? -** https:/[Public IP of the ELK Server:[Port]/app/kibana**
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 -** Download the playbook using a curl command 
 - update the hosts file running nano hosts 
 - update the ansible.cfg file running nano ansible.cfg
